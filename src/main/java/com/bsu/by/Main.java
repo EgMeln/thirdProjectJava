@@ -4,10 +4,16 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Enter text: ");
-        Scanner in = new Scanner(System.in);
-        String str = in.nextLine();
-        System.out.println(toLargeLetter(str));
+        try (Scanner in = new Scanner(System.in)) {
+            System.out.println("Enter text: ");
+            String str = in.nextLine();
+            if (str.trim().length() == 0) {
+                throw new StringIndexOutOfBoundsException("Your line is empty.");
+            }
+            System.out.println(toLargeLetter(str));
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+        }
     }
 
     static String toLargeLetter(String str) {
@@ -22,3 +28,4 @@ public class Main {
         return secondStr.toString();
     }
 }
+
