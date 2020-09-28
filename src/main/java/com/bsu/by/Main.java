@@ -29,7 +29,7 @@ public class Main {
         for (String str : text) {
             StringBuilder secondStr = new StringBuilder(str);
             char[] charArray = str.toCharArray();
-            for (int i = 1; i <= str.length(); i++) {
+            for (int i = 1; i < str.length(); i++) {
                 secondStr.setCharAt(0, Character.toUpperCase(str.charAt(0)));
                 if (Character.isSpaceChar(str.charAt(i - 1)) | charArray[i - 1] == '.' | charArray[i - 1] == ',') {
                     secondStr.setCharAt(i, Character.toUpperCase(str.charAt(i)));
