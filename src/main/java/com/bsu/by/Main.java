@@ -18,7 +18,8 @@ public class Main {
             if (text.size() == 0) {
                 throw new InvalidParameterException("Your line is empty.");
             }
-            OutList(text);
+            List<String> finallyStr = toLargeLetter(text);
+            outList(finallyStr);
         } catch (Exception ex) {
             System.out.println(ex.toString());
         }
@@ -27,23 +28,21 @@ public class Main {
     static List<String> toLargeLetter(List<String> text) {
         List<String> newStr = new ArrayList<>();
         for (String str : text) {
-            StringBuilder secondStr = new StringBuilder(str);
+            StringBuilder modifiedStr = new StringBuilder(str);
             char[] charArray = str.toCharArray();
             for (int i = 1; i < str.length(); i++) {
-                secondStr.setCharAt(0, Character.toUpperCase(str.charAt(0)));
+                modifiedStr.setCharAt(0, Character.toUpperCase(str.charAt(0)));
                 if (Character.isSpaceChar(str.charAt(i - 1)) | charArray[i - 1] == '.' | charArray[i - 1] == ',') {
-                    secondStr.setCharAt(i, Character.toUpperCase(str.charAt(i)));
+                    modifiedStr.setCharAt(i, Character.toUpperCase(str.charAt(i)));
                 }
             }
-            newStr.add(secondStr.toString());
+            newStr.add(modifiedStr.toString());
         }
         return newStr;
     }
 
-    static void OutList(List<String> text) {
-        List<String> text2;
-        text2 = toLargeLetter(text);
-        for (String s : text2) {
+    static void outList(List<String> text) {
+        for (String s : text) {
             System.out.println(s);
         }
     }

@@ -18,8 +18,7 @@ public class MainTest {
         expectedStr.add("В.Этой Жизни ");
         expectedStr.add("Ты Либо,Волк");
         expectedStr.add("Либо.Не,Волк");
-        List<String> finishedLine;
-        finishedLine = Main.toLargeLetter(str);
+        List<String> finishedLine = Main.toLargeLetter(str);
         assertEquals(finishedLine, expectedStr);
     }
 }
